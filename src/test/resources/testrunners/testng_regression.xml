@@ -8,17 +8,17 @@
         <listener class-name="com.qa.opencart.listeners.TestAllureListener"/>
         <listener class-name="com.qa.opencart.listeners.AnnotationTransformer"/>
     </listeners>
-<!--        <test name="Login Page Test">-->
-<!--            <classes>-->
-<!--                <class name="com.qa.opencart.Tests.RegisterPageTest"/>-->
-<!--            </classes>-->
-<!--        </test>-->
+        <test name="Login Page Test">
+            <classes>
+                <class name="com.qa.opencart.Tests.RegisterPageTest"/>
+            </classes>
+        </test>
 
-<!--            <test name="Registration Test">-->
-<!--                <classes>-->
-<!--                    <class name="com.qa.opencart.Tests.AccountsPageTest"/>-->
-<!--                </classes>-->
-<!--            </test>-->
+            <test name="Registration Test">
+                <classes>
+                    <class name="com.qa.opencart.Tests.AccountsPageTest"/>
+                </classes>
+            </test>
 
     <test name="Login Test">
         <classes>
@@ -26,10 +26,10 @@
         </classes>
     </test>
 
-<!--        <test name="Productinfo Test">-->
-<!--            <classes>-->
-<!--                <class name="com.qa.opencart.Tests.ProductInfoTest"/>-->
-<!--            </classes>-->
-<!--        </test>-->
+        <test name="Productinfo Test">
+            <classes>
+                <class name="com.qa.opencart.Tests.ProductInfoTest"/>
+            </classes>
+        </test>
 
 </suite>
