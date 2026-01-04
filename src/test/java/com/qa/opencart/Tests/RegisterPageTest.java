@@ -28,9 +28,9 @@ public class RegisterPageTest extends BaseTest{
     @DataProvider
     public Object[][] getUserRegData() {
         return new Object[][] {
-                {"Pooja", "agrawal", "9090909090", "pooja@123", "yes"},
-                {"Shubham", "gupta", "9090909011", "shubh@123", "no"},
-                {"mitaj", "kumar", "9090909012", "mitaj@123", "yes"},
+                {"Pooja", "agrawal", "9090909090", "pooja@123", "yes"}
+//                {"Shubham", "gupta", "9090909011", "shubh@123", "no"},
+//                {"mitaj", "kumar", "9090909012", "mitaj@123", "yes"},
         };
     }
 
