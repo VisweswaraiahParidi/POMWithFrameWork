@@ -1,0 +1,112 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = "2.24.0"
+
+dependencies {
+
+
+    implementation("org.seleniumhq.selenium:selenium-java:4.38.0")
+    testImplementation("org.testng:testng:7.11.0")
+
+// build.gradle (dependencies section)
+    testImplementation 'org.apache.poi:poi:5.2.3'
+    testImplementation 'org.apache.poi:poi-ooxml:5.2.3'
+
+    testImplementation 'org.apache.poi:poi:5.2.5'
+    testImplementation 'org.apache.poi:poi-ooxml:5.2.5'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.5'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.5'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    implementation group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '4.1.2'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad
+    implementation group: 'org.apache.poi', name: 'poi-scratchpad', version: '5.2.5'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/ooxml-schemas
+    implementation group: 'org.apache.poi', name: 'ooxml-schemas', version: '1.4'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/openxml4j
+    implementation group: 'org.apache.poi', name: 'openxml4j', version: '1.0-beta'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.23.1'
+
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.23.1'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.23.1'
+
+    // https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin
+    implementation group: 'org.apache.maven.plugins', name: 'maven-compiler-plugin', version: '3.8.1'
+
+    // https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin
+    implementation group: 'org.apache.maven.plugins', name: 'maven-surefire-plugin', version: '3.2.3'
+
+    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.9'
+//
+//    // https://mvnrepository.com/artifact/org.projectlombok/lombok`
+//    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+
+    // https://mvnrepository.com/artifact/com.relevantcodes/extentreports
+    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation group: 'commons-io', name: 'commons-io', version: '2.16.1'
+
+//    // https://mvnrepository.com/artifact/io.qameta.allure/allure-gradle
+//    implementation group: 'io.qameta.allure', name: 'allure-gradle', version: '2.8.1'
+
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-attachments
+    implementation group: 'io.qameta.allure', name: 'allure-attachments', version: '2.28.0'
+
+// TestNG needed at compile/runtime because listener lives in main source
+    implementation 'org.testng:testng:7.8.0'
+
+    // ExtentReports for ExtentSparkReporter / MediaEntityBuilder
+    implementation 'com.aventstack:extentreports:5.0.9'
+
+    // (If you use Selenium in DriverFactory)
+    implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
+
+    // Import allure-bom to ensure correct versions of all the dependencies are used
+    testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
+    // Add necessary Allure dependencies to dependencies section
+    testImplementation "io.qameta.allure:allure-testng"
+
+    // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.22.1'
+
+// https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.27.0'
+
+}
+test {
+
+    //systemProperty 'env', System.properties['env'] ?:'uat'
+    //  systemProperty 'browser', System.properties['browser'] ?:'firefox'
+
+    useTestNG()
+            {
+                outputDirectory = file("test-output")
+                useDefaultListeners = true
+                suites 'src/test/resources/testrunners/testng_regression.xml'
+                // suites 'src/test/resources/testrunners/testng_sanity.xml'
+            }
+
+}
